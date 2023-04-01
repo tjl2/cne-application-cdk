@@ -15,7 +15,7 @@ export class CneApplicationCdkStack extends cdk.Stack {
     // });
 
     // Create the BlackLibrarySYnopsis (Elixir) lambda function
-    const lambdaFunction = new lambda.Function(this, 'CneApplicationCdkLambda', {
+    const lambdaFunction = new lambda.Function(this, 'BlackLibrarySynopsisLambda', {
       runtime: lambda.Runtime.PROVIDED,
       code: lambda.Code.fromAsset('./elixir-lambda.zip'),
       handler: 'Elixir.BlackLibrarySynopsis:lambda_handler'
