@@ -31,5 +31,12 @@ export class CneApplicationCdkStack extends cdk.Stack {
       },
       timeout: cdk.Duration.seconds(10),
     });
+
+    // Create a function URL for the lambda function
+    const lambdaFunctionUrl = new lambda.FunctionUrl(this, 'BlackLibrarySynopsisLambdaUrl', {
+      function: lambdaFunction,
+      authType: lambda.FunctionUrlAuthType.NONE
+    });
+
   }
 }
