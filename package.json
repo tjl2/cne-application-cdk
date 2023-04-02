@@ -9,7 +9,7 @@
     "watch": "tsc -w",
     "test": "jest",
     "cdk": "cdk",
-    "build-react-app": "git clone --depth 1 https://github.com/tjl2/cne-application react-app && cd react-app && rm -rf .git && npm install && npm run build && cd -"
+    "build-react-app": "rm -rf src/react-app && git clone https://github.com/tjl2/cne-application src/react-app && cd src/react-app && rm -rf .git && npm install && npm run build && cd -"
   },
   "devDependencies": {
     "@types/jest": "^29.4.0",
