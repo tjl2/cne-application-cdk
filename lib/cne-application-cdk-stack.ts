@@ -94,6 +94,12 @@ export class CneApplicationCdkStack extends cdk.Stack {
     });
     
     // Deploy the react app to the S3 bucket
+    new deploy.BucketDeployment(this, 'DeployReactApp', {
+      sources: [deploy.Source.asset(path.join(__dirname, '/../src/react-app/build'))],
+      destinationBucket: bucket,
+      distribution: siteDistribution,
+      distributionPaths: ['/*']
+    });
 
   }
 }
