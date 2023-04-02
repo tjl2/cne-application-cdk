@@ -35,7 +35,10 @@ export class CneApplicationCdkStack extends cdk.Stack {
     // Create a function URL for the lambda function
     const lambdaFunctionUrl = new lambda.FunctionUrl(this, 'BlackLibrarySynopsisLambdaUrl', {
       function: lambdaFunction,
-      authType: lambda.FunctionUrlAuthType.NONE
+      authType: lambda.FunctionUrlAuthType.NONE,
+      cors: {
+        allowedOrigins: ['*']
+      }
     });
 
   }
