@@ -42,7 +42,9 @@ export class CneApplicationCdkStack extends cdk.Stack {
       function: lambdaFunction,
       authType: lambda.FunctionUrlAuthType.NONE,
       cors: {
-        allowedOrigins: ['*']
+        allowedOrigins: ["*"],
+        allowedMethods: [lambda.HttpMethod.POST],
+        allowedHeaders: ["content-type"]
       }
     });
 
