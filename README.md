@@ -1,8 +1,8 @@
-# Welcome to your CDK TypeScript project
+# AWS CDK (Typescript) - React App
 
-This is a blank project for CDK development with TypeScript.
+This repo contains the CDK code for deploying my React app ([tjl2/cne-application](https://github.com/tjl2/cne-application)) to AWS.
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+It also contains the JS code for the Lambda function that communicates with OpenAI for Black Library synopsis generation (`src/openai-lambda`).
 
 ## Useful commands
 
