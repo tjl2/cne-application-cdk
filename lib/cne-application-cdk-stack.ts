@@ -93,6 +93,7 @@ export class CneApplicationCdkStack extends cdk.Stack {
       zone
     });
     
-    // Deploy the react app from the GitHub repo to the S3 bucket
-    
+    // Deploy the react app to the S3 bucket
+
+  }
 }
