@@ -2,6 +2,7 @@ import * as cdk from 'aws-cdk-lib';
 import { aws_lambda as lambda } from 'aws-cdk-lib';
 import { aws_secretsmanager as sm } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
+import path = require('path');
 // import * as sqs from 'aws-cdk-lib/aws-sqs';
 
 export class CneApplicationCdkStack extends cdk.Stack {
@@ -22,12 +23,13 @@ export class CneApplicationCdkStack extends cdk.Stack {
 
     // Create the BlackLibrarySYnopsis (Elixir) lambda function
     const lambdaFunction = new lambda.Function(this, 'BlackLibrarySynopsisLambda', {
-      runtime: lambda.Runtime.PROVIDED,
-      code: lambda.Code.fromAsset('./elixir-lambda.zip'),
-      handler: 'Elixir.BlackLibrarySynopsis:lambda_handler',
+      runtime: lambda.Runtime.NODEJS_18_X,
+      code: lambda.Code.fromAsset(path.join(__dirname, '/../src/openai-lambda')),
+      handler: 'index.handler',
       environment: {
-        OPENAI_API_KEY: openaiSecret.secretValue.unsafeUnwrap().toString()
-      }
+        OPENAI_API_KEY: openaiSecret.secretValue.unsafeUnwrap()
+      },
+      timeout: cdk.Duration.seconds(10),
     });
   }
 }
