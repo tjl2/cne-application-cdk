@@ -18,7 +18,7 @@ export const handler = async(event) => {
   const data = JSON.stringify({
     prompt: `Write a synopsis for a Black Library novel about ${event.prompt}`,
     model: 'text-davinci-003',
-    temperature: 0.6,
+    temperature: 0.7,
     max_tokens: 250,
     top_p: 1,
     frequency_penalty: 1,
